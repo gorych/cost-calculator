@@ -1,16 +1,24 @@
 package by.gsu.repository.impl;
 
-import by.gsu.jooq.tables.Product;
+import by.gsu.domain.Product;
+import by.gsu.repository.ConnectionHolder;
 import by.gsu.repository.ProductRepository;
+import org.jooq.impl.DSL;
 
 import java.util.List;
 import java.util.Optional;
+
+import static by.gsu.jooq.Tables.PRODUCT;
 
 public class ProductRepositoryImpl implements ProductRepository {
 
     @Override
     public List<Product> findAll() {
-        return null;
+        return DSL.using(ConnectionHolder.getConnection())
+                .select()
+                .from(PRODUCT)
+                .fetch()
+                .map(Product::new);
     }
 
     @Override

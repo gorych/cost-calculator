@@ -1,6 +1,7 @@
 package by.gsu.repository;
 
-import by.gsu.jooq.tables.Product;
+
+import by.gsu.domain.Product;
 
 public interface ProductRepository extends CrudRepository<Product> {
 }

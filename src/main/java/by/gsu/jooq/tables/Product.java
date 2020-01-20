@@ -41,7 +41,7 @@ import org.jooq.impl.TableImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class Product extends TableImpl<ProductRecord> {
 
-    private static final long serialVersionUID = -865424987;
+    private static final long serialVersionUID = -1488775825;
 
     /**
      * The reference instance of <code>Product</code>
@@ -65,6 +65,41 @@ public class Product extends TableImpl<ProductRecord> {
      * The column <code>Product.name</code>.
      */
     public final TableField<ProductRecord, String> NAME = createField("name", org.jooq.impl.SQLDataType.CLOB.nullable(false), this, "");
+
+    /**
+     * The column <code>Product.vat</code>.
+     */
+    public final TableField<ProductRecord, Float> VAT = createField("vat", org.jooq.impl.SQLDataType.REAL.nullable(false), this, "");
+
+    /**
+     * The column <code>Product.profit</code>.
+     */
+    public final TableField<ProductRecord, Float> PROFIT = createField("profit", org.jooq.impl.SQLDataType.REAL.nullable(false), this, "");
+
+    /**
+     * The column <code>Product.salary</code>.
+     */
+    public final TableField<ProductRecord, Float> SALARY = createField("salary", org.jooq.impl.SQLDataType.REAL.nullable(false), this, "");
+
+    /**
+     * The column <code>Product.fuelAndEnergy</code>.
+     */
+    public final TableField<ProductRecord, Float> FUELANDENERGY = createField("fuelAndEnergy", org.jooq.impl.SQLDataType.REAL.nullable(false), this, "");
+
+    /**
+     * The column <code>Product.recyclableWaste</code>.
+     */
+    public final TableField<ProductRecord, Float> RECYCLABLEWASTE = createField("recyclableWaste", org.jooq.impl.SQLDataType.REAL.nullable(false), this, "");
+
+    /**
+     * The column <code>Product.components</code>.
+     */
+    public final TableField<ProductRecord, Float> COMPONENTS = createField("components", org.jooq.impl.SQLDataType.REAL.nullable(false), this, "");
+
+    /**
+     * The column <code>Product.rawAndMaterials</code>.
+     */
+    public final TableField<ProductRecord, Float> RAWANDMATERIALS = createField("rawAndMaterials", org.jooq.impl.SQLDataType.REAL.nullable(false), this, "");
 
     /**
      * Create a <code>Product</code> table reference

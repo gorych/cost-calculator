@@ -1,6 +1,6 @@
 package by.gsu.util;
 
-import by.gsu.form.Form;
+import by.gsu.form.AbstractForm;
 import lombok.experimental.UtilityClass;
 
 import javax.swing.*;
@@ -11,7 +11,7 @@ import java.awt.event.WindowEvent;
 @UtilityClass
 public class FormUtil {
 
-    public static void openForm(Form form) {
+    public static void openForm(AbstractForm form) {
         EventQueue.invokeLater(() -> {
             JFrame frame = new JFrame(form.getTitle());
             frame.setMinimumSize(new Dimension(form.getWidth(), form.getHeight()));
