@@ -18,6 +18,7 @@ import java.awt.*;
 import java.util.List;
 import java.util.function.ObjIntConsumer;
 
+import static javax.swing.JOptionPane.INFORMATION_MESSAGE;
 import static javax.swing.JOptionPane.WARNING_MESSAGE;
 import static javax.swing.WindowConstants.EXIT_ON_CLOSE;
 
@@ -104,13 +105,15 @@ public class MainForm extends AbstractForm {
             data[i][11] = product;
         }
 
-        this.productsTable.setModel(new CheckBoxColumnTableModel(data, columnNames, 0));
+        this.productsTable.setModel(new CheckBoxColumnTableModel(data, columnNames, 0, 10));
         setColumnSizes(this.productsTable);
 
         TableColumn actionColumn = this.productsTable.getColumn(ACTION_COLUMN_NAME);
         actionColumn.setCellRenderer(new ButtonRender());
         actionColumn.setCellEditor(new CalculateButtonEditor(
-                event -> FormUtil.openForm(null)));
+                event -> {
+                    JOptionPane.showMessageDialog(mainPanel, "Стоимость = 23432 руб.", "Результаты рассчета", INFORMATION_MESSAGE);
+                }));
     }
 
     private void setColumnSizes(JTable productsTable) {

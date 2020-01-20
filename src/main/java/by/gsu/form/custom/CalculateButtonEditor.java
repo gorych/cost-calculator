@@ -1,6 +1,6 @@
 package by.gsu.form.custom;
 
-import by.gsu.jooq.tables.Product;
+import by.gsu.domain.Product;
 
 import javax.swing.*;
 import java.awt.*;
@@ -33,7 +33,7 @@ public class CalculateButtonEditor extends DefaultCellEditor {
             button.setBackground(table.getBackground());
         }
 
-        product = (Product) table.getModel().getValueAt(row, 6);
+        product = (Product) table.getModel().getValueAt(row, 11);
 
         label = (value == null) ? "" : value.toString();
         button.setText(label);
