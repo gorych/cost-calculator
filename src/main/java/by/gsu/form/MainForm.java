@@ -1,10 +1,10 @@
 package by.gsu.form;
 
 
-import by.gsu.domain.Product;
 import by.gsu.form.custom.ButtonRender;
 import by.gsu.form.custom.CalculateButtonEditor;
 import by.gsu.form.custom.tablemodel.CheckBoxColumnTableModel;
+import by.gsu.model.Product;
 import by.gsu.repository.ConnectionHolder;
 import by.gsu.repository.impl.ProductRepositoryImpl;
 import by.gsu.service.ProductService;
@@ -24,9 +24,9 @@ import static javax.swing.WindowConstants.EXIT_ON_CLOSE;
 
 public class MainForm extends AbstractForm {
 
-    private static final int PREF_WIDTH = 1300;
-    private static final int PREF_HEIGHT = 500;
     private static final String TITLE = "Система рассчета стоимости продукции";
+    private static final int PREF_WIDTH = 1300;
+    private static final int PREF_HEIGHT = 700;
 
     private static final String SELECTION_COLUMN_NAME = "Выбор";
     private static final String NUMBER_COLUMN_NAME = "№";
@@ -48,7 +48,7 @@ public class MainForm extends AbstractForm {
 
         initProductsTable();
 
-//        addProductButton.addActionListener(e -> FormUtil.openForm(new AddNewPerson(this)));
+        addProductButton.addActionListener(e -> FormUtil.openForm(new AddNewProduct(this)));
 
         deleteProductButton.addActionListener(e -> {
             deleteProduct();
@@ -111,8 +111,8 @@ public class MainForm extends AbstractForm {
         TableColumn actionColumn = this.productsTable.getColumn(ACTION_COLUMN_NAME);
         actionColumn.setCellRenderer(new ButtonRender());
         actionColumn.setCellEditor(new CalculateButtonEditor(
-                event -> {
-                    JOptionPane.showMessageDialog(mainPanel, "Стоимость = 23432 руб.", "Результаты рассчета", INFORMATION_MESSAGE);
+                cost -> {
+                    JOptionPane.showMessageDialog(mainPanel, "Стоимость = " + cost + " руб.", "Результаты рассчета", INFORMATION_MESSAGE);
                 }));
     }
 
@@ -211,11 +211,11 @@ public class MainForm extends AbstractForm {
         gbc.insets = new Insets(5, 5, 5, 5);
         panel2.add(deleteProductButton, gbc);
         addProductButton = new JButton();
-        addProductButton.setHorizontalTextPosition(0);
+        addProductButton.setHorizontalTextPosition(11);
         addProductButton.setMargin(new Insets(0, 0, 0, 0));
-        addProductButton.setMinimumSize(new Dimension(700, 26));
+        addProductButton.setMinimumSize(new Dimension(1400, 26));
         addProductButton.setOpaque(false);
-        addProductButton.setPreferredSize(new Dimension(700, 26));
+        addProductButton.setPreferredSize(new Dimension(1400, 26));
         addProductButton.setText("Добавить изделие");
         gbc = new GridBagConstraints();
         gbc.gridx = 0;

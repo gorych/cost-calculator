@@ -1,6 +1,6 @@
 package by.gsu.service;
 
-import by.gsu.domain.Product;
+import by.gsu.model.Product;
 import by.gsu.repository.ProductRepository;
 import lombok.RequiredArgsConstructor;
 
@@ -19,6 +19,11 @@ public class ProductServiceImpl implements ProductService {
     @Override
     public void delete(Product product) {
         productRepository.delete(product);
+    }
+
+    @Override
+    public Product add(Product product) {
+        return productRepository.save(product);
     }
 
 }

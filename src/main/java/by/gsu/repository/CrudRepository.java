@@ -9,7 +9,7 @@ public interface CrudRepository<T> {
 
     Optional<T> findById(int id);
 
-    T add(T entity);
+    T save(T entity);
 
     void update(T entity);
 
