@@ -1,5 +1,6 @@
 package by.gsu.form.custom;
 
+import by.gsu.model.Calculation;
 import by.gsu.model.Product;
 import by.gsu.service.CalculationService;
 import by.gsu.service.CalculationServiceImpl;
@@ -14,12 +15,12 @@ public class CalculateButtonEditor extends DefaultCellEditor {
     private String label;
     private boolean isPressed;
 
-    private transient Consumer<Float> onPressAction;
+    private transient Consumer<Calculation> onPressAction;
     private transient Product product;
 
     private CalculationService calculationService;
 
-    public CalculateButtonEditor(Consumer<Float> onPressAction) {
+    public CalculateButtonEditor(Consumer<Calculation> onPressAction) {
         super(new JCheckBox());
         this.button = new JButton();
         this.button.setOpaque(true);
@@ -49,8 +50,8 @@ public class CalculateButtonEditor extends DefaultCellEditor {
     @Override
     public Object getCellEditorValue() {
         if (isPressed) {
-            Float cost = calculationService.calculate(product);
-            onPressAction.accept(cost);
+            Calculation calculation = calculationService.calculate(product);
+            onPressAction.accept(calculation);
         }
         isPressed = false;
         return label;

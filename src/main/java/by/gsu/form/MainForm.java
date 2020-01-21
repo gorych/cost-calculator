@@ -111,8 +111,8 @@ public class MainForm extends AbstractForm {
         TableColumn actionColumn = this.productsTable.getColumn(ACTION_COLUMN_NAME);
         actionColumn.setCellRenderer(new ButtonRender());
         actionColumn.setCellEditor(new CalculateButtonEditor(
-                cost -> {
-                    JOptionPane.showMessageDialog(mainPanel, "Стоимость = " + cost + " руб.", "Результаты рассчета", INFORMATION_MESSAGE);
+                calculation -> {
+                    JOptionPane.showMessageDialog(mainPanel, calculation, "Результаты рассчета", INFORMATION_MESSAGE);
                 }));
     }
 
